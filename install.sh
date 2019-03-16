@@ -120,6 +120,9 @@ kubectl expose deployment hello-node --type=LoadBalancer --port=8080
 
 ./minikube service hello-node
 
+# create dashboard
+./minikube dashboard
+
 # install heapster
 ./minikube addons enable heapster
 
