@@ -1,0 +1,4 @@
+# ignore files
+.run/server.js
+minikube
+# ignore directory
