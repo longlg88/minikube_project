@@ -1,5 +1,16 @@
 #!/bin/bash
 
+
+# directory position save and move to directory
+pushd(){
+    command pushd "$@" > /dev/null
+}
+
+# move to original directory position
+popd(){
+    command popd "$@" > /dev/null
+}
+
 # mkdir .run
 if [ -d "$PWD/.run" ]; then
     echo -e "There is .run directory"
@@ -92,9 +103,12 @@ COPY server.js .
 CMD node server.js" > $PWD/.run/Dockerfile
 fi
 
-# docker build
+ # docker build
 echo -e "docker image build"
+pushd $PWD/.run
+
 docker build -t hello-node:v1 .
+popd
 
 # kubectl run
 echo -e "kubectl run"
@@ -115,3 +129,4 @@ kubectl expose deployment hello-node --type=LoadBalancer --port=8080
 
 # status pod & services
 kubectl get pod,svc -n kube-system
+
