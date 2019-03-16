@@ -11,13 +11,6 @@ popd(){
     command popd "$@" > /dev/null
 }
 
-# mkdir .run
-if [ -d "$PWD/.run" ]; then
-    echo -e "There is .run directory"
-else
-    mkdir $PWD/.run
-fi
-
 # update
 echo -e "apt update"
 apt update
@@ -94,15 +87,15 @@ www.listen(8080);" > $PWD/.run/server.js
 fi
 
 # touch Dockerfile
-if [ -e "$PWD/.run/Dockerfile" ]; then
-    echo -e "There is Dockerfile in .run"
-else
-    echo -e "FROM node:10.15.3
-EXPOSE 8080
-COPY server.js .
-CMD node server.js" > $PWD/.run/Dockerfile_temp
-iconv -c -f utf-8 -t us-ascii $PWD/.run/Dockerfile_temp > $PWD/.run/Dockerfile
-fi
+#if [ -e "$PWD/.run/Dockerfile" ]; then
+#    echo -e "There is Dockerfile in .run"
+#else
+#    echo -e "FROM node:10.15.3
+#EXPOSE 8080
+#COPY server.js .
+#CMD node server.js" > $PWD/.run/Dockerfile_temp
+#iconv -c -f utf-8 -t us-ascii $PWD/.run/Dockerfile_temp > $PWD/.run/Dockerfile
+#fi
 
 
 
