@@ -100,8 +100,11 @@ else
     echo -e "FROM node:10.15.3
 EXPOSE 8080
 COPY server.js .
-CMD node server.js" > $PWD/.run/Dockerfile
+CMD node server.js" > $PWD/.run/Dockerfile_temp
+iconv -c -f utf-8 -t us-ascii $PWD/.run/Dockerfile_temp > $PWD/.run/Dockerfile
 fi
+
+
 
  # docker build
 echo -e "docker image build"
