@@ -61,7 +61,7 @@ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/miniku
 
 # minikube start
 echo -e "minikube start"
-minikube start --vm-driver=none
+./minikube start --vm-driver=none
 
 # install nodejs
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
@@ -108,10 +108,10 @@ kubectl create deployment hello-node --image=gcr.io/hello-minikube-zero-install/
 echo -e "create service"
 kubectl expose deployment hello-node --type=LoadBalancer --port=8080
 
-minikube service hello-node
+./minikube service hello-node
 
 # install heapster
-minikube addons enable heapster
+./minikube addons enable heapster
 
 # status pod & services
 kubectl get pod,svc -n kube-system
