@@ -97,7 +97,7 @@ fi
 if [ -e "$PWD/.run/Dockerfile" ]; then
     echo -e "There is Dockerfile in .run"
 else
-    echo -e "FROM node:6.9.2
+    echo -e "FROM node:10.15.3
 EXPOSE 8080
 COPY server.js .
 CMD node server.js" > $PWD/.run/Dockerfile
