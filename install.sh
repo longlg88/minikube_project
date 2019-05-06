@@ -71,61 +71,36 @@ echo -e "minikube start"
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
-# touch server.js
-if [ -e "$PWD/.run/server.js" ]; then
-    echo -e "There is server.js"
-else
-    echo -e "var http = require('http');
 
-var handleRequest = function(request, response) {
-  console.log('Received request for URL: ' + request.url);
-  response.writeHead(200);
-  response.end('Hello World!');
-};
-var www = http.createServer(handleRequest);
-www.listen(8080);" > $PWD/.run/server.js
-fi
+echo "alias k=kubectl" >> ~/.bashrc
 
-# touch Dockerfile
-#if [ -e "$PWD/.run/Dockerfile" ]; then
-#    echo -e "There is Dockerfile in .run"
-#else
-#    echo -e "FROM node:10.15.3
-#EXPOSE 8080
-#COPY server.js .
-#CMD node server.js" > $PWD/.run/Dockerfile_temp
-#iconv -c -f utf-8 -t us-ascii $PWD/.run/Dockerfile_temp > $PWD/.run/Dockerfile
-#fi
-
-
-
- # docker build
-echo -e "docker image build"
-pushd $PWD/.run
-
-docker build -t hello-node:v1 .
-popd
+# docker build
+#echo -e "docker image build"
+#pushd $PWD/.run
+#
+#docker build -t hello-node:v1 .
+#popd
 
 # kubectl run
-echo -e "kubectl run"
-kubectl run hello-node --image=hello-node:v1 --port 8080 --image-pull-policy=Never
+#echo -e "kubectl run"
+#kubectl run hello-node --image=hello-node:v1 --port 8080 --image-pull-policy=Never
 
 # create deployment
-echo -e "create deployment"
-kubectl create deployment hello-node --image=gcr.io/hello-minikube-zero-install/hello-node
+#echo -e "create deployment"
+#kubectl create deployment hello-node --image=gcr.io/hello-minikube-zero-install/hello-node
 
 # create service
-echo -e "create service"
-kubectl expose deployment hello-node --type=LoadBalancer --port=8080
+#echo -e "create service"
+#kubectl expose deployment hello-node --type=LoadBalancer --port=8080
 
-./minikube service hello-node
+#./minikube service hello-node
 
 # create dashboard
-./minikube dashboard
+#./minikube dashboard
 
 # install heapster
-./minikube addons enable heapster
+#./minikube addons enable heapster
 
 # status pod & services
-kubectl get pod,svc -n kube-system
+#kubectl get pod,svc -n kube-system
 
