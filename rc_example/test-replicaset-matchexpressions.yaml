@@ -1,0 +1,21 @@
+apiVersion: apps/v1beta2
+kind: ReplicaSet
+metadata:
+  name: test
+spec:
+  replicas: 3
+  selector:
+    matchExpressions:
+      - key: app
+        operator: In
+        values:
+          - test
+  template:
+    metadata:
+      labels:
+        app: test
+    spec:
+      containers:
+      - name: test
+        image: rozen88/test
+

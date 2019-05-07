@@ -1,4 +1,12 @@
-# This is installation about minikube
+This is installation about minikube
+=====================================
+
+# Server spec
+## It must be run on Ubuntu 16.04
+## It will fail when you run in Ubuntu 18.10.
+
+-------------------------
+
 ## 1. Install docker
 ## 2. Install kubectl
 ## 3. Install minikube
