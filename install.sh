@@ -17,6 +17,10 @@ apt update
 # install packages
 echo -e "install packages"
 apt-get -y install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+
+# add docker official gpg key
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
 # signing
 echo -e "signing for docker"
 apt-key fingerprint 0EBFCD88
