@@ -1,0 +1,18 @@
+apiVersion: apps/v1beta2
+kind: ReplicaSet
+metadata:
+  name: test2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: test2
+  template:
+    metadata:
+      labels:
+        app: test2
+    spec:
+      containers:
+      - name: test2
+        image: rozen88/test
+
