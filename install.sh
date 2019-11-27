@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo -e "Install docker & kubectl & minikube"
 
 # directory position save and move to directory
 pushd(){
@@ -65,18 +66,7 @@ apt-get -y install kubectl
 
 # minikube download
 echo -e "minikube download"
-curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube
-
-# minikube start
-echo -e "minikube start"
-./minikube start --vm-driver=none
-
-# install nodejs
-curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-sudo apt-get install -y nodejs
-
-
-echo "alias k=kubectl" >> ~/.bashrc
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube && mv minikube /usr/bin/
 
 # docker build
 #echo -e "docker image build"
