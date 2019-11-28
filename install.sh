@@ -68,6 +68,18 @@ apt-get -y install kubectl
 echo -e "minikube download"
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube && mv minikube /usr/bin/
 
+echo "alias k=kubectl" >> ~/.bashrc
+
+
+echo -e
+echo -e "Copy this command"
+
+echo -e "minikube start --vm-driver=none --kubernetes-version v1.13.5"
+
+
+echo -e "Delete cluster command"
+echo -e "minikube stop && minikube delete --purge"
+
 # docker build
 #echo -e "docker image build"
 #pushd $PWD/.run
