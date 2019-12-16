@@ -68,25 +68,17 @@ sudo apt-get -y install kubectl
 echo -e "minikube download"
 sudo curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && sudo chmod +x minikube && sudo mv minikube /usr/bin/
 
-mkdir ~/.kube
-mkdir ~/.minikube
-
-sudo chown $USER:$USER -R ~/.kube
-sudo chown $USER:$USER -R ~/.minikube
-sudo usermod -a -G docker $USER
-sudo service docker restart
-
 echo "alias k=kubectl" >> ~/.bashrc
 
 
 echo -e
 echo -e "Copy this command"
 
-echo -e "minikube start --vm-driver=none --kubernetes-version v1.13.5"
+echo -e "sudo minikube start --vm-driver=none --kubernetes-version v1.13.5"
 
 
 echo -e "Delete cluster command"
-echo -e "minikube stop && minikube delete --purge"
+echo -e "sudo minikube stop && minikube delete --purge"
 
 # docker build
 #echo -e "docker image build"
