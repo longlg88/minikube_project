@@ -66,7 +66,7 @@ sudo apt-get -y install kubectl
 
 # minikube download
 echo -e "minikube download"
-sudo curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube && mv minikube /usr/bin/
+sudo curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && sudo chmod +x minikube && sudo mv minikube /usr/bin/
 
 sudo chown $USER:$USER -R ~/.kube
 sudo chown $USER:$USER -R ~/.minikube
